@@ -16,13 +16,17 @@ while rodando:
             except ValueError: 
                 print("O numero de volumes tem que ser um numero inteiro entre 1 e 100...")
     
-    nao_isento = True
-    while nao_isento: 
+    processo_simples = True
+    while processo_simples: 
         isento_ou_recolhido = input("Processo possui insencao da parte perdedora ou custas ja foram recolhidas? (y Y ||n N) ").lower()
-        if isento_ou_recolhido == "y" or isento_ou_recolhido == "n":
-            nao_isento = False
+        if isento_ou_recolhido == "y":
+            processo_simples = False
+            isento_ou_recolhido = True
+        elif isento_ou_recolhido == "n":
+            processo_simples = False
+            isento_ou_recolhido = False
         else:
-             nao_isento = True
+             processo_simples = True
     
         
     peso_processo = 0
