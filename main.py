@@ -1,3 +1,5 @@
+limite_minimo_volume = 1
+limite_maximo_volume = 100
 def calcular_peso(volume, isencao):
 
     if(volume >= 4 and not isencao):
@@ -10,14 +12,14 @@ def calcular_peso(volume, isencao):
 rodando = True
 while rodando:
     volume_processo = 0
-    while volume_processo <= 0 or volume_processo > 100:
+    while volume_processo < limite_minimo_volume or volume_processo > limite_maximo_volume:
         try:
             volume_processo = int(input("Digite o n de volumes do processo...\n"))
         except ValueError: 
-            print("O numero de volumes tem que ser um numero inteiro entre 1 e 100...")
+            print(f"O numero de volumes tem que ser um numero inteiro entre {limite_minimo_volume} e {limite_maximo_volume}...")
         else:
-            if volume_processo <= 0 or volume_processo > 100:
-                print("O numero de volumes tem que ser um numero inteiro entre 1 e 100...")
+            if volume_processo < limite_minimo_volume or volume_processo > limite_maximo_volume:
+                print(f"O numero de volumes tem que ser um numero inteiro entre {limite_minimo_volume} e {limite_maximo_volume}...")
                 
     
     resposta_valida_isencao = False
