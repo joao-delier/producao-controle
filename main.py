@@ -1,5 +1,5 @@
-limite_minimo_volume = 1
-limite_maximo_volume = 100
+LIMITE_MINIMO_VOLUME = 1
+LIMITE_MAXIMO_VOLUME = 100
 def calcular_peso(volume, isencao):
 
     if(volume >= 4 and not isencao):
@@ -12,20 +12,20 @@ def calcular_peso(volume, isencao):
 rodando = True
 while rodando:
     volume_processo = 0
-    while volume_processo < limite_minimo_volume or volume_processo > limite_maximo_volume:
+    while volume_processo < LIMITE_MINIMO_VOLUME or volume_processo > LIMITE_MAXIMO_VOLUME:
         try:
-            volume_processo = int(input("Digite o n de volumes do processo...\n"))
+            volume_processo = int(input("Digite o nº de volumes do processo...\n"))
         except ValueError: 
-            print(f"O numero de volumes tem que ser um numero inteiro entre {limite_minimo_volume} e {limite_maximo_volume}...")
+            print(f"O número de volumes tem que ser um número inteiro entre {LIMITE_MINIMO_VOLUME} e {LIMITE_MAXIMO_VOLUME}...")
         else:
-            if volume_processo < limite_minimo_volume or volume_processo > limite_maximo_volume:
-                print(f"O numero de volumes tem que ser um numero inteiro entre {limite_minimo_volume} e {limite_maximo_volume}...")
+            if volume_processo < LIMITE_MINIMO_VOLUME or volume_processo > LIMITE_MAXIMO_VOLUME:
+                print(f"O número de volumes tem que ser um número inteiro entre {LIMITE_MINIMO_VOLUME} e {LIMITE_MAXIMO_VOLUME}...")
                 
     
     resposta_valida_isencao = False
     
     while not resposta_valida_isencao: 
-        isento_ou_recolhido = input("Processo possui insenção da parte perdedora ou custas ja foram recolhidas? (s/n) ").lower()
+        isento_ou_recolhido = input("Processo possui isenção da parte perdedora ou custas já foram recolhidas? (s/n) ").lower()
         if isento_ou_recolhido == "s":
             resposta_valida_isencao = True
             isento_ou_recolhido = True
