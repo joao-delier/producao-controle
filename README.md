@@ -50,8 +50,8 @@ Pressione 1 para continuar ou 2 para sair...2
 
 ## Etapas
 
-- [ ] Ambiente e repositório
-- [ ] Calculadora de peso no terminal
+- [x] Ambiente e repositório
+- [x] Calculadora de peso no terminal
 - [ ] Leitura de vários processos a partir de um arquivo CSV
 - [ ] Validação de dados e testes automatizados
 - [ ] Relatório mensal em Excel
