@@ -25,7 +25,23 @@ Em muitos setores, a produção do mês ainda é controlada à mão, com planilh
 
 ## Como rodar
 
-Em construção. As instruções entram aqui com a primeira versão funcional.
+**Pré-requisito:** Python 3 instalado.
+
+```bash
+git clone https://github.com/joao-delier/producao-controle.git
+cd producao-controle
+python main.py
+```
+
+**Exemplo de uso:**
+
+```text
+Digite o nº de volumes do processo...
+5
+Processo possui isenção da parte perdedora ou custas já foram recolhidas? (s/n) n
+O peso do processo: 2
+Pressione 1 para continuar ou 2 para sair...2
+```
 
 ## Tecnologias
 
