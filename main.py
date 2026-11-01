@@ -2,27 +2,33 @@ import csv
 from calcular_peso import calcular_peso, LIMITE_MINIMO_VOLUME, LIMITE_MAXIMO_VOLUME
 
 
+
 total_processos = 0
 soma_pesos = 0
 
 processo_atual = ['', '', '']
-with open('dados/dados.csv', mode='r') as file:
+with open('dados/dados.csv', mode='r', encoding='utf-8') as file:
     file_csv = csv.reader(file, delimiter=',')
     next(file_csv)  # pra pular o cabeçalho
 
-    for row in file_csv:
-        processo_atual[0] = row[0]
+    for numero_processo, volume, isencao in file_csv:
+        processo_atual[0] = numero_processo
         try:
-            processo_atual[1] = int(row[1])
+            processo_atual[1] = int(volume)
         except ValueError:
-            print(f"Erro ao converter o valor '{row[1]}' para inteiro do processo {row[0]}. O valor será definido como 0.")
-            processo_atual[1] = 0  # 
+            print(f"Erro ao converter o valor '{volume}' para inteiro do processo {numero_processo}. Esse processo será ignorado.")
             continue
-        processo_atual[2] = (row[2])
-        if row[2].lower().strip() == 's':
+        
+        processo_atual[2] = (isencao)
+        resposta_isencao = isencao.lower().strip()
+        if resposta_isencao == 's':
            processo_atual[2] = True
-        elif row[2].lower().strip() == 'n':
+        elif resposta_isencao == 'n':
             processo_atual[2] = False
+        else:
+            print(f"Erro ao interpretar a isenção do processo {numero_processo}. Use ('s'/'n') esse processo sera ignorado.")
+            processo_atual[2] = False  # 
+            continue
 
         peso = calcular_peso(processo_atual[1], processo_atual[2])
         soma_pesos += peso
@@ -33,7 +39,5 @@ with open('dados/dados.csv', mode='r') as file:
 print(f"Total de processos: {total_processos}")
 print(f"Soma dos pesos: {soma_pesos}")
 
-#for i in processo_atual:
-   # print(f"nº do processo: {i[0]} | nº de volumes: {i[1]} | isenção: {i[2]}")
 
 
