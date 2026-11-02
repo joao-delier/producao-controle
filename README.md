@@ -18,10 +18,10 @@ Em muitos setores, a produção do mês ainda é controlada à mão, com planilh
 
 ## O que o sistema faz
 
-- recebe a lista de processos trabalhados no mês;
+- recebe a lista de processos em formato csv;
 - aplica as regras de peso automaticamente;
-- valida os dados, como o formato do número do processo;
-- gera o relatório mensal.
+- valida os dados, como volume mínimo e máximo, status de isenção atual do processo;
+- gera o relatório.
 
 ## Como rodar
 
@@ -30,26 +30,43 @@ Em muitos setores, a produção do mês ainda é controlada à mão, com planilh
 ```bash
 git clone https://github.com/joao-delier/producao-controle.git
 cd producao-controle
-python main.py
-python calcular_peso.py
 ```
 
 **Exemplo de uso:**
 
 ### MODO ARQUIVO CSV
+Lê diretamente de um arquivo csv, e calcula o peso de cada processo.
+
+```bash
+python main.py
+```
 
 o csv deve ser 3 colunas no formato:
 processo(text), volume(int), isenção(text)
 
 exemplo:
 ```text
+0000001-00.2026.8.00.0001,5,n
+0000002-00.2026.8.00.0001,6,s
+```
+Saída:
 
-linha do arquivo csv - 0000001-00.2026.8.00.0001,5,n
-resultado no terminal: nº do processo: 0000001-00.2026.8.00.0001 | nº de volumes: 5 | isenção: False | peso: 2
+```
+nº do processo: 0000001-00.2026.8.00.0001 | nº de volumes: 5 | isenção: False | peso: 2
+nº do processo: 0000002-00.2026.8.00.0001 | nº de volumes: 6 | isenção: True | peso: 1
 ```
 
+
 ### MODO INTERATIVO
-exemplo: 
+
+Recebe volume e status de isenção de um processo e devolve o peso calculado.
+
+exemplo:
+
+```bash
+python calcular_peso.py
+```
+
 ```text
 Digite o nº de volumes do processo...
 5
