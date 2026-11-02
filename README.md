@@ -30,17 +30,28 @@ Em muitos setores, a produção do mês ainda é controlada à mão, com planilh
 ```bash
 git clone https://github.com/joao-delier/producao-controle.git
 cd producao-controle
-python main.py
+py main.py
+py calcular_peso.py
 ```
 
 **Exemplo de uso:**
-
+py calcular_peso.py
+Modo onde se interage diretamente com o terminal, nesse modelo se ignora o n do prccesso, utilizando apenas o volume e o peso atribuido.
 ```text
 Digite o nº de volumes do processo...
 5
 Processo possui isenção da parte perdedora ou custas já foram recolhidas? (s/n) n
 O peso do processo: 2
 Pressione 1 para continuar ou 2 para sair...2
+
+
+No modo em que o programa lê os dados diretos de um arquivo csv:
+
+o csv deve ser 3 colunas no formato:
+n_do_processo (text), volume(int), peso(int)
+
+
+py main.py
 ```
 
 ## Tecnologias
