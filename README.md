@@ -31,10 +31,25 @@ Em muitos setores, a produção do mês ainda é controlada à mão, com planilh
 git clone https://github.com/joao-delier/producao-controle.git
 cd producao-controle
 python main.py
+python calcular_peso.py
 ```
 
 **Exemplo de uso:**
 
+### MODO ARQUIVO CSV
+
+o csv deve ser 3 colunas no formato:
+processo(text), volume(int), isenção(text)
+
+exemplo:
+```text
+
+linha do arquivo csv - 0000001-00.2026.8.00.0001,5,n
+resultado no terminal: nº do processo: 0000001-00.2026.8.00.0001 | nº de volumes: 5 | isenção: False | peso: 2
+```
+
+### MODO INTERATIVO
+exemplo: 
 ```text
 Digite o nº de volumes do processo...
 5
@@ -42,7 +57,6 @@ Processo possui isenção da parte perdedora ou custas já foram recolhidas? (s/
 O peso do processo: 2
 Pressione 1 para continuar ou 2 para sair...2
 ```
-
 ## Tecnologias
 
 - Python
@@ -52,7 +66,7 @@ Pressione 1 para continuar ou 2 para sair...2
 
 - [x] Ambiente e repositório
 - [x] Calculadora de peso no terminal
-- [ ] Leitura de vários processos a partir de um arquivo CSV
+- [x] Leitura de vários processos a partir de um arquivo CSV
 - [ ] Validação de dados e testes automatizados
 - [ ] Relatório mensal em Excel
 - [ ] Banco de dados (SQLite)
