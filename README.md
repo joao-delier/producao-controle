@@ -32,7 +32,7 @@ git clone https://github.com/joao-delier/producao-controle.git
 cd producao-controle
 ```
 
-**Exemplo de uso:**
+
 
 ### MODO ARQUIVO CSV
 Lê diretamente de um arquivo csv, e calcula o peso de cada processo.
@@ -41,9 +41,9 @@ Lê diretamente de um arquivo csv, e calcula o peso de cada processo.
 python main.py
 ```
 
-o csv deve ser 3 colunas no formato:
-processo(text), volume(int), isenção(text)
-
+  - `processo`: número do processo (texto)
+  - `volume`: número inteiro entre 1 e 100
+  - `isencao`: `s` ou `n`
 exemplo:
 ```text
 0000001-00.2026.8.00.0001,5,n
