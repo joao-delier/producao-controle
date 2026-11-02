@@ -13,8 +13,12 @@ with open('dados/dados.csv', mode='r', encoding='utf-8') as file:
 
     for numero_processo, volume, isencao in file_csv:
         processo_atual[0] = numero_processo
+        
         try:
             processo_atual[1] = int(volume)
+            if volume > LIMITE_MAXIMO_VOLUME or volume < LIMITE_MINIMO_VOLUME:
+                print(f"Volume do processo {numero_processo} fora do limite permitido. Esse processo será ignorado.")
+                continue
         except ValueError:
             print(f"Erro ao converter o valor '{volume}' para inteiro do processo {numero_processo}. Esse processo será ignorado.")
             continue
